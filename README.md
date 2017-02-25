@@ -1,12 +1,10 @@
 # resend
 
-Containerized utility to scan and print llen of Redis keys.
+Web server for Redis data including Refile support.
 
 <img src="https://raw.githubusercontent.com/evanx/resend/master/docs/readme/main.png"/>
 
 ## Use case
-
-We wish to expire a set of keys in Redis matching some pattern.
 
 ```
 ```
