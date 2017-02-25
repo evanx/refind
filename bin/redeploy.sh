@@ -1,5 +1,5 @@
 
-set -u -e
+set -u -e -x
 
 home=${1-$HOME/tmp/test}
 
@@ -10,7 +10,7 @@ docker ps -q -f name=refind | xargs -r -n 1 docker rm -f
 docker run --name refind -d \
   --restart unless-stopped \
   --network=host \
-  -v $home/volumes/refind/data:/data \
+  -v $home/volumes/refind/data:/data:ro \
   -e NODE_ENV=$NODE_ENV \
   -e host=localhost \
   refind

@@ -55,15 +55,14 @@ For a sample deployment script with the following `docker run` command, see http
 docker run --name refind -d \
   --restart unless-stopped \
   --network=host \
-  -v $home/volumes/refind/data:/data \
+  -v $home/volumes/refind/data:/data:ro \
   -e NODE_ENV=$NODE_ENV \
   -e host=localhost \
   refind
 ```
 where
 - the host's Redis instance is used since `--network=host`
-- the host's filesystem is used relative to a specified `$home` directory
-
+- host's filesystem is used relative to a specified `$home` directory for the read-only `refile` volume  
 
 ### Test
 
