@@ -7,10 +7,14 @@ docker build -t refind https://github.com/evanx/refind.git
 
 docker ps -q -f name=refind | xargs -r -n 1 docker rm -f
 
-docker run --name refind -d \
+container=`docker run --name refind -d \
   --restart unless-stopped \
   --network=host \
   -v $home/volumes/refind/data:/data:ro \
   -e NODE_ENV=$NODE_ENV \
   -e host=localhost \
-  refind
+  refind | cut -b1-6`
+
+echo "docker logs $container"
+
+docker logs -f `docker ps -q -f name=refind`
