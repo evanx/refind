@@ -78,7 +78,42 @@ Builds:
 See `lib/main.js`
 
 ```javascript
+    api.get('/re/*', async ctx => {
+        const path = ctx.params[0];
+        const parts = path.split('/');
+        const key = [...parts, 'j'].join(':')
+        const [content] = await multiExecAsync(client, multi => {
+            multi.get(key);
+            multi.hincrby([config.redisNamespace, 'count:h'].join(':'), 'req', 1);
+        });
+        if (content) {
+            ctx.set('Content-Type', 'application/json');
+            ctx.body = content;
+            return;
+        }
+        ...
+    });
 ```
+If not found in Redis, then we try fetch via HTTP from `config.refileDomain`    
+```javascript
+        const sha = crypto.createHash('sha1').update(key).digest('hex');
+        const refileUrl = [
+            'https://' + config.refileDomain,
+            'key',
+            sha.substring(0, 3),
+            parts.join('-') + '.json'
+        ].join('/');
+        const fetchRes = await fetch(refileUrl);
+        if (fetchRes.status !== 200) {
+            ctx.statusCode = fetchRes.status;
+        } else {
+            ctx.body = await fetchRes.json();
+        }
+```
+where Refile path prefix includes the first three digits of the SHA of the key.
+
+See https://github.com/evanx/refile
+
 
 ### Appication archetype
 
