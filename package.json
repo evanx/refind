@@ -1,5 +1,5 @@
 {
-  "name": "resend",
+  "name": "refind",
   "version": "0.1.2",
   "description": "Web server for Redis data including Refile support.",
   "main": "lib/index.js",
@@ -22,10 +22,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/evanx/resend.git"
+    "url": "https://github.com/evanx/refind.git"
   },
   "bugs": {
-    "url": "https://github.com/evanx/resend/issues"
+    "url": "https://github.com/evanx/refind/issues"
   },
-  "homepage": "https://github.com/evanx/resend#readme"
+  "homepage": "https://github.com/evanx/refind#readme"
 }

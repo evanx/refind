@@ -3,7 +3,7 @@ set -u -e
 
 PATH=$PATH:./node_modules/.bin
 
-name='resend'
+name='refind'
 network="$name-network"
 redisName="$name-redis"
 
@@ -16,18 +16,18 @@ setUp() {
 }
 
 build() {
-  docker build -t resend https://github.com/evanx/resend.git
+  docker build -t refind https://github.com/evanx/refind.git
 }
 
 start() {
-  docker run --name resend-instance -d \
-    --network=resend-network \
+  docker run --name refind-instance -d \
+    --network=refind-network \
     -e redisHost=$redisHost \
-    resend
+    refind
 }
 
 stop() {
-  docker rm -f resend-instance
+  docker rm -f refind-instance
 }
 
 main() {
