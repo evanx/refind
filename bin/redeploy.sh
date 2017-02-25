@@ -10,11 +10,10 @@ docker ps -q -f name=refind | xargs -r -n 1 docker rm -f
 container=`docker run --name refind -d \
   --restart unless-stopped \
   --network=host \
-  -v $home/volumes/refind/data:/data:ro \
+  -v $home/volumes/refile/data:/data:ro \
   -e NODE_ENV=$NODE_ENV \
+  -e refileDomain=$refileDomain \
   -e host=localhost \
   refind | cut -b1-6`
 
-echo "docker logs $container"
-
-docker logs -f `docker ps -q -f name=refind`
+docker logs -f $container
