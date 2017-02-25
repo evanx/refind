@@ -1,7 +1,7 @@
 {
   "name": "resend",
-  "version": "0.1.1",
-  "description": "Web server for Redis data including Refile support",
+  "version": "0.1.2",
+  "description": "Web server for Redis data including Refile support.",
   "main": "lib/index.js",
   "scripts": {
     "lint": "eslint --cache src",
@@ -10,14 +10,15 @@
   "author": "@evanxsummers",
   "license": "ISC",
   "dependencies": {
-    "redis-koa-app-rpf": "^0.6.5"
+    "app-bin": "^0.1.1",
+    "redis-koa-app-rpf": "^0.6.16"
   },
   "devDependencies": {
     "eslint": "^3.12.2"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/evanx/resend.git"
+    "url": "https://github.com/evanx/resend.git"
   },
   "bugs": {
     "url": "https://github.com/evanx/resend/issues"
