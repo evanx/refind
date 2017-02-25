@@ -2,7 +2,7 @@
 
 Web server for Redis data including Refile support.
 
-<img src="https://raw.githubusercontent.com/evanx/refind/master/docs/readme/main2.png"/>
+<img src="https://raw.githubusercontent.com/evanx/refind/master/docs/readme/main.png"/>
 
 ## Use case
 
