@@ -1,8 +1,7 @@
 
 set -u -e
 
-[ $# -eq 1 ]
-home=$1
+home=${1-$HOME/tmp/test}
 
 docker build -t refind https://github.com/evanx/refind.git
 
