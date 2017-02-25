@@ -92,7 +92,6 @@ See `lib/main.js`
             return;
         }
         ...
-    });
 ```
 If not found in Redis, then we try fetch via HTTP from `config.refileDomain`    
 ```javascript
