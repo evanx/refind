@@ -93,7 +93,7 @@ See `lib/main.js`
         }
         ...
 ```
-If not found in Redis, then we try fetch via HTTP from `config.refileDomain`    
+Else the JSON `content` is not found in Redis for `key` and we fetch via HTTP from `config.refileDomain`    
 ```javascript
         const sha = crypto.createHash('sha1').update(key).digest('hex');
         const refileUrl = [
